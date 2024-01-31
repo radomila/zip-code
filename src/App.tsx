@@ -7,9 +7,16 @@ import { Flex } from '@chakra-ui/react';
 function App() {
   const [input, setInput] = useState('');
   return (
-    <Flex flexDirection="column" alignItems="flex-start" m="5">
-      <Header />
-      <InputField input={input} setInput={setInput} />
+    <Flex flexDirection="column" justifyContent="center" alignItems="center">
+      <Flex
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        m="5"
+      >
+        <Header />
+        <InputField input={input} setInput={setInput} />
+      </Flex>
       <Locations input={input} />
     </Flex>
   );
