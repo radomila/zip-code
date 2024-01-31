@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import useCode from '../Hooks/useCode';
 import Spinner from './Spinner';
+import AlertBox from './AlertBox';
 
 function Locations({ input }: { input: string }) {
   const { code, loading } = useCode(input);
@@ -41,14 +42,17 @@ function Locations({ input }: { input: string }) {
             </CardBody>
           </Card>
         ) : (
-          <Text fontSize="xl">
-            We are sorry, but for this zip code wasn't found any places.
-          </Text>
+          <AlertBox
+            status="error"
+            title="No places found."
+            desc="We are sorry, but for this zip code wasn't found any places."
+          />
         )
       ) : (
-        <Text fontSize="xl">
-          In order to show the list of places, please enter the zip code.
-        </Text>
+        <AlertBox
+          status="info"
+          desc="In order to show the list of places, please enter the zip code."
+        />
       )}
     </>
   );

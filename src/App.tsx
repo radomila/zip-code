@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Header from './components/Header';
+//import Header from './components/Header';
 import InputField from './components/InputField';
 import Locations from './components/Locations';
 import { Flex } from '@chakra-ui/react';
@@ -14,7 +14,7 @@ function App() {
         justifyContent="center"
         m="5"
       >
-        <Header />
+        {/* <Header /> */}
         <InputField input={input} setInput={setInput} />
       </Flex>
       <Locations input={input} />

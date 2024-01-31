@@ -12,3 +12,9 @@ export interface Code {
   'country abbreviation': string;
   places: Places[];
 }
+
+export interface AlertBoxProps {
+  status: 'info' | 'warning' | 'success' | 'error' | 'loading' | undefined;
+  title?: string;
+  desc: string;
+}
