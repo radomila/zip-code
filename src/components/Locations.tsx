@@ -11,9 +11,14 @@ import {
 import useCode from '../Hooks/useCode';
 import Spinner from './Spinner';
 import AlertBox from './AlertBox';
+import { InputProps } from '../types/code';
 
-function Locations({ input }: { input: string }) {
-  const { code, loading } = useCode(input);
+interface Props {
+  input: InputProps;
+}
+
+function Locations({ input }: Props) {
+  const { code, loading } = useCode(input.zipCode);
 
   if (!code) {
     return (

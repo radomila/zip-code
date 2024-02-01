@@ -18,3 +18,7 @@ export interface AlertBoxProps {
   title?: string;
   desc: string;
 }
+
+export interface InputProps {
+  zipCode: string;
+}
