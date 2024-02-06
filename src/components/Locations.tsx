@@ -27,7 +27,7 @@ function Locations({ input }: Props) {
   const finalIndex = currentPage * codesPerPage;
   const startingIndex = finalIndex - codesPerPage;
 
-  const zipCodes = code?.places.slice(startingIndex, finalIndex);
+  const zipCodes = code?.places?.slice(startingIndex, finalIndex);
 
   if (!code) {
     return (
