@@ -4,7 +4,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react';
-import { AlertBoxProps } from '../types/code';
+import { AlertBoxProps } from '../../types/code';
 
 function AlertBox({ status, title, desc }: AlertBoxProps) {
   return (

@@ -9,8 +9,8 @@ import {
   StackDivider,
 } from '@chakra-ui/react';
 import useCode from '../Hooks/useCode';
-import Spinner from './Spinner';
-import AlertBox from './AlertBox';
+import Spinner from './UIComponents/Spinner';
+import AlertBox from './UIComponents/AlertBox';
 import { InputProps } from '../types/code';
 import Pagination from './Pagination';
 import { useState } from 'react';
@@ -63,12 +63,20 @@ function Locations({ input }: Props) {
             )}
           </CardBody>
         </Card>
-        <Pagination
-          totalItems={code?.places?.length}
-          itemsPerPage={codesPerPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        <Box
+          position="fixed"
+          bottom="0"
+          left="50%"
+          transform="translateX(-50%)"
+          paddingY="4"
+        >
+          <Pagination
+            totalItems={code?.places?.length}
+            itemsPerPage={codesPerPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        </Box>
       </>
     );
   } else {
