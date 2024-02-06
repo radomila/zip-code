@@ -1,14 +1,18 @@
-import { Input, FormControl, FormHelperText } from '@chakra-ui/react';
+import {
+  Input,
+  FormControl,
+  FormHelperText,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
 import { isValid } from '../functions/isValid';
 import { InputProps } from '../types/code';
 
 interface Props {
-  input: InputProps;
   setInput: (value: InputProps) => void;
 }
 
-function InputField({ input, setInput }: Props) {
+function InputField({ setInput }: Props) {
   const [localInput, setLocalInput] = useState('');
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,9 +20,11 @@ function InputField({ input, setInput }: Props) {
     setLocalInput(event.target.value);
   };
 
+  const isError = !isValid(localInput) && localInput !== '';
+
   return (
     <>
-      <FormControl isRequired>
+      <FormControl isRequired isInvalid={isError}>
         <Input
           placeholder="Please enter a zip code"
           htmlSize={30}
@@ -28,8 +34,14 @@ function InputField({ input, setInput }: Props) {
           onChange={handleInput}
         />
 
-        {isValid(input.zipCode) && (
-          <FormHelperText>Your zip code is invalid - 999 99</FormHelperText>
+        {isError ? (
+          <FormErrorMessage>
+            Your input is invalid, right format is e.g.: 384 71
+          </FormErrorMessage>
+        ) : (
+          <FormHelperText>
+            Enter a zip code in a following format, e.g. 384 73
+          </FormHelperText>
         )}
       </FormControl>
     </>

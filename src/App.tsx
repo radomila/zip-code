@@ -14,7 +14,7 @@ function App() {
         justifyContent="center"
         m="5"
       >
-        <InputField input={input} setInput={setInput} />
+        <InputField setInput={setInput} />
       </Flex>
       <Locations input={input} />
     </Flex>
