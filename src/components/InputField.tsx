@@ -1,9 +1,4 @@
-import {
-  Input,
-  FormControl,
-  FormHelperText,
-  FormErrorMessage,
-} from '@chakra-ui/react';
+import { Input, FormControl, FormHelperText } from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
 import { isValid } from '../functions/isValid';
 import { InputProps } from '../types/code';
@@ -23,7 +18,7 @@ function InputField({ input, setInput }: Props) {
 
   return (
     <>
-      <FormControl isRequired isInvalid={isValid(input.zipCode)}>
+      <FormControl isRequired>
         <Input
           placeholder="Please enter a zip code"
           htmlSize={30}
@@ -32,10 +27,9 @@ function InputField({ input, setInput }: Props) {
           value={localInput}
           onChange={handleInput}
         />
-        {isValid(input.zipCode) ? (
-          <FormHelperText>Enter the zip code</FormHelperText>
-        ) : (
-          <FormErrorMessage>Zip code is invalid</FormErrorMessage>
+
+        {isValid(input.zipCode) && (
+          <FormHelperText>Your zip code is invalid - 999 99</FormHelperText>
         )}
       </FormControl>
     </>

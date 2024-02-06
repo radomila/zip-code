@@ -22,3 +22,7 @@ export interface AlertBoxProps {
 export interface InputProps {
   zipCode: string;
 }
+
+export interface PageNumberProps {
+  number: number;
+}
