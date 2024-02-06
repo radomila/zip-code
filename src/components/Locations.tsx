@@ -66,6 +66,7 @@ function Locations({ input }: Props) {
         <Pagination
           totalItems={code?.places?.length}
           itemsPerPage={codesPerPage}
+          currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
       </>
