@@ -13,14 +13,15 @@ interface Props {
 }
 
 function InputField({ setInput }: Props) {
-  const [localInput, setLocalInput] = useState('');
+  const [localValue, setLocalValue] = useState('');
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    if (isValid(event.target.value)) setInput({ zipCode: event.target.value });
-    setLocalInput(event.target.value);
+    const value = event.target.value;
+    if (isValid(value)) setInput({ zipCode: value });
+    setLocalValue(value);
   };
 
-  const isError = !isValid(localInput) && localInput !== '';
+  const isError = !isValid(localValue) && localValue !== '';
 
   return (
     <>
@@ -30,7 +31,7 @@ function InputField({ setInput }: Props) {
           htmlSize={30}
           width="auto"
           size="lg"
-          value={localInput}
+          value={localValue}
           onChange={handleInput}
         />
 
@@ -40,7 +41,7 @@ function InputField({ setInput }: Props) {
           </FormErrorMessage>
         ) : (
           <FormHelperText>
-            Enter a zip code in a following format, e.g. 384 73
+            Enter a zip code in a following format, e.g.: 384 73
           </FormHelperText>
         )}
       </FormControl>
