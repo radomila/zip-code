@@ -13,12 +13,6 @@ export interface Code {
   places: Places[];
 }
 
-export interface AlertBoxProps {
-  status: 'info' | 'warning' | 'success' | 'error' | 'loading' | undefined;
-  title?: string;
-  desc: string;
-}
-
 export interface InputProps {
   zipCode: string;
 }

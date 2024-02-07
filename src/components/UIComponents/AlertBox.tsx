@@ -4,7 +4,12 @@ import {
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react';
-import { AlertBoxProps } from '../../types/code';
+
+export interface AlertBoxProps {
+  status: 'info' | 'warning' | 'success' | 'error' | 'loading' | undefined;
+  title?: string;
+  desc: string;
+}
 
 function AlertBox({ status, title, desc }: AlertBoxProps) {
   return (
